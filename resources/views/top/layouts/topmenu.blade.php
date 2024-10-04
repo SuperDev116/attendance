@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
     <a href="{{ route('top') }}" class="navbar-brand p-0">
-        <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>Kintai</h1>
+        {{-- <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>Kintai</h1> --}}
+        <img src="{{ asset('assets/kintaix_logo.png') }}" style="width: 200px;" />
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="fa fa-bars"></span>

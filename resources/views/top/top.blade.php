@@ -56,7 +56,7 @@
                     <h5 class="fw-bold text-primary text-uppercase">当社について</h5>
                     <h1 class="mb-0">人事実務の専門家集団と共同開発した、勤怠管理システム</h1>
                 </div>
-                <p class="mb-4">「Kintai勤怠」は、1000社以上のサポート経験により培った人事・労務の専門ノウハウが詰まった安価な勤怠管理システムです。</p>
+                <p class="mb-4">「KintaiX」は、1000社以上のサポート経験により培った人事・労務の専門ノウハウが詰まった安価な勤怠管理システムです。</p>
                 <p class="mb-4">人事実務の専門家がベンチャー企業で必要な機能を精査し、シンプルで使いやすい勤怠管理システムを共同開発しました。</p>
                 <div class="row g-0 mb-3">
                     <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
@@ -74,7 +74,7 @@
                     </div>
                     <div class="ps-4">
                         <h5 class="mb-2">ご質問がありましたら、お電話ください。</h5>
-                        <h4 class="text-primary mb-0">+080 0000 0000</h4>
+                        <h4 class="text-primary mb-0">03-6673-2814</h4>
                     </div>
                 </div>
                 {{-- <a href="quote.html" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Request A Quote</a> --}}
@@ -93,7 +93,7 @@
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
             <h5 class="fw-bold text-primary text-uppercase">なぜ私たちを選ぶのですか？</h5>
-            <h1 class="mb-0">勤怠管理システム「Kintai勤怠」の特長</h1>
+            <h1 class="mb-0">勤怠管理システム「KintaiX」の特長</h1>
         </div>
         <div class="row g-5">
             <div class="col-lg-4">
@@ -102,7 +102,7 @@
                         <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                             <i class="fa fa-cubes text-white"></i>
                         </div>
-                        <h4>低価格で今すぐ使える！</h4>
+                        <h4>適正価格で今すぐ使える！</h4>
                         <p class="mb-0">シンプルで使いやすい勤怠管理システムを</p>
                     </div>
                     <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
@@ -132,7 +132,7 @@
                         <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                             <i class="fa fa-phone-alt text-white"></i>
                         </div>
-                        <h4>24/10 サポート</h4>
+                        <h4>充実したサポート</h4>
                         <p class="mb-0">1日10時間以上サポートできます。</p>
                     </div>
                 </div>
@@ -144,9 +144,10 @@
 <!-- Service Start -->
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
-        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-            <h5 class="fw-bold text-primary text-uppercase">勤怠管理システム「Kintai勤怠」の主要機能</h5>
-            <h1 class="mb-0">ベンチャー企業で必要な機能を精査し、シンプルで使いやすいシステムになっています。</h1>
+        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto">
+            <h5 class="fw-bold text-primary text-uppercase">勤怠管理システム「Kintai X」の主要機能</h5>
+            <h1 class="mb-0">ベンチャー企業で必要な機能を精査し、</h1>
+            <h1>シンプルで使いやすいシステムになっています。</h1>
         </div>
         <div class="row g-5">
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
@@ -212,7 +213,7 @@
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
                 <div class="position-relative bg-primary rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
                     <h3 class="text-white mb-3">お見積りはお電話にて</h3>
-                    <h2 class="text-white mb-0">+080 0000 0000</h2>
+                    <h2 class="text-white mb-0">03-6673-2814</h2>
                 </div>
             </div>
         </div>
@@ -369,7 +370,7 @@
                     </div>
                     <div class="ps-4">
                         <h5 class="mb-2">ご質問はお電話にて</h5>
-                        <h4 class="text-primary mb-0">+080 0000 0000</h4>
+                        <h4 class="text-primary mb-0">03-6673-2814</h4>
                     </div>
                 </div>
             </div>
@@ -398,7 +399,7 @@
 </div>
 <!-- Quote End -->
 <!-- Team Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+{{-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
             <h5 class="fw-bold text-primary text-uppercase">スタッフ</h5>
@@ -418,7 +419,6 @@
                     </div>
                     <div class="text-center py-4">
                         <h4 class="text-primary">赤木和雄</h4>
-                        {{-- <p class="text-uppercase m-0">Designation</p> --}}
                     </div>
                 </div>
             </div>
@@ -435,7 +435,6 @@
                     </div>
                     <div class="text-center py-4">
                         <h4 class="text-primary">舞田 昌子</h4>
-                        {{-- <p class="text-uppercase m-0">Designation</p> --}}
                     </div>
                 </div>
             </div>
@@ -452,12 +451,11 @@
                     </div>
                     <div class="text-center py-4">
                         <h4 class="text-primary">洞 公子</h4>
-                        {{-- <p class="text-uppercase m-0">Designation</p> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Team End -->
 @endsection

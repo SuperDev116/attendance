@@ -72,24 +72,28 @@ class LoginController extends Controller
             ]
         ); 
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials))
+        {
             $request->session()->regenerate();
-            if(Auth::user()->role == 0) {
-                
+            if (Auth::user()->role == 0)
+            {
                 return redirect()->route('admin.dashboard');
-
-            } else if(Auth::user()->role == 1) {
+            }
+            else if (Auth::user()->role == 1)
+            {
                 $user_id = Auth::user()->id;
-                if ($request->input("password") == "company1234") {
+                if ($request->input("password") == "company1234")
+                {
                     return redirect()->route('company.company_profile', $user_id);
-                } else {
+                }
+                else
+                {
                     return redirect()->route('company.staff_list');
                 }
-
-            } else {
-
+            }
+            else
+            {
                 return redirect()->route('stamp');
-
             }       
         }
 
@@ -114,14 +118,18 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
-    public function resetPwd(Request $request) {
+    public function resetPwd(Request $request)
+    {
         $details = [];
         $bccAry = [];
         $pwd = User::where('email', $request->email)->get();
         
-        if (count($pwd) == 0) {
+        if (count($pwd) == 0)
+        {
             return '<div id="toast-container" class="toast-top-right"></div>';
-        } else {
+        }
+        else
+        {
             $details = $pwd[0];
         }
 
@@ -134,12 +142,14 @@ class LoginController extends Controller
         return redirect()->route('logout');
     }
 
-    public function forgotPwd(Request $request) {
+    public function forgotPwd(Request $request)
+    {
         $emails = User::select('email')->get();
         return view('auth.forgot', ['emails' => $emails]);
     }
 
-    public function resetView(Request $request) {
+    public function resetView(Request $request)
+    {
         $id = $request->query('token');
         $user_id = decrypt($id);
         return view('auth.reset', compact('user_id'));
@@ -153,13 +163,14 @@ class LoginController extends Controller
         return redirect()->route('logout');
     }
 
-    public function profile(Request $request) {
+    public function profile(Request $request)
+    {
         $user = User::find($request->id);
         return view('user.profile', compact('user'));
     }
 
-    public function user_update(Request $request) {
-        
+    public function user_update(Request $request)
+    {
         $user = User::find($request->user_id);
         $user->email = $request->email;
         $user->depart_id = $request->depart_id;

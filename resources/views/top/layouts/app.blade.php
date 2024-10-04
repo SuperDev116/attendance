@@ -70,9 +70,9 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>大阪府大阪市旭区新森10丁目5-36フォレストヴィラ158</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+080 0000 0000</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>shoutuoshisutemu@gmail.com</small>
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>東京都中央区日本橋室町1丁目11番12号日本橋水野ビル7階</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>03-6673-2814</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@unoun.co.jp</small>
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
     </div>
     <!-- Full Screen Search End -->
     <!-- Vendor Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    {{-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5 mb-5">
             <div class="bg-white">
                 <div class="owl-carousel vendor-carousel">
@@ -146,7 +146,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Vendor End -->
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -174,15 +174,15 @@
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-geo-alt text-primary me-2"></i>
-                                <p class="mb-0">大阪府大阪市旭区新森10丁目5-36フォレストヴィラ158</p>
+                                <p class="mb-0">東京都中央区日本橋室町1丁目11番12号日本橋水野ビル7階</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-envelope-open text-primary me-2"></i>
-                                <p class="mb-0">shoutuoshisutemu@gmail.com</p>
+                                <p class="mb-0">info@unoun.co.jp</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-telephone text-primary me-2"></i>
-                                <p class="mb-0">+080 0000 0000</p>
+                                <p class="mb-0">03-6673-2814</p>
                             </div>
                             {{-- <div class="d-flex mt-4">
                                 <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
@@ -221,7 +221,7 @@
             <div class="row justify-content-end">
                 <div class="col-lg-8 col-md-6">
                     <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
-                        <p class="mb-0">&copy; <a class="text-white border-bottom" href="{{ route('top') }}">Kintai Co. Ltd.</a> All rights reserved.
+                        <p class="mb-0">&copy; <a class="text-white border-bottom" href="https://unoun.co.jp/" target="_blank">unoun inc.</a> All rights reserved.
                     </div>
                 </div>
             </div>

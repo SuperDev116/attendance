@@ -21,7 +21,7 @@
                     </div>
                     <div class="ps-4">
                         <h5 class="mb-2">ご質問はお電話にて</h5>
-                        <h4 class="text-primary mb-0">+080 0000 0000</h4>
+                        <h4 class="text-primary mb-0">03-6673-2814</h4>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="ps-4">
                         <h5 class="mb-2">メールで無料見積もりを取得する</h5>
-                        <h4 class="text-primary mb-0">shoutuoshisutemu@gmail.com</h4>
+                        <h4 class="text-primary mb-0">info@unoun.co.jp</h4>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="ps-4">
                         <h5 class="mb-2">オフィスを訪問する</h5>
-                        <h4 class="text-primary mb-0">大阪府大阪市旭区新森10丁目5-36フォレストヴィラ158</h4>
+                        <h4 class="text-primary mb-0">東京都中央区日本橋室町1丁目11番12号日本橋水野ビル7階</h4>
                     </div>
                 </div>
             </div>

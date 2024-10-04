@@ -37,13 +37,17 @@ class AuthController extends BaseController
             ]
         );
 
-        if($validator->fails()){
+        if ($validator->fails())
+        {
             return $this->sendError('Error validation', $validator->errors());
         }
 
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password]))
+        {
             $authUser = auth('sanctum')->user();
-            if($authUser->getAttribute('role') == 1){
+
+            if ($authUser->getAttribute('role') == 1)
+            {
                 // $success['token'] =  $authUser->createToken('auth_token', [$authUser->getAttribute('role').'Role'])->plainTextToken;
                 $success['name'] =  $authUser->getAttribute('user_name');
                 $company = Company::find($authUser->getAttribute('company_id'));
@@ -51,12 +55,15 @@ class AuthController extends BaseController
                 // $success['role'] =  $authUser->getAttribute('role');
                 $success['email'] =  $authUser->getAttribute('email');
                 return $this->sendResponse($success, 'ログインしました。');
-            } else {
+            }
+            else
+            {
                 return $this->sendError('会社管理者ではありません。', ['error'=>'NO Boss']);
             }
         }
-        else{
-            return $this->sendError('無効なメールアドレスまたはパスワード。', ['error'=>'Unauthorised']);
+        else
+        {
+            return $this->sendError('無効なメールアドレスまたはパスワード。', ['error'=>'Unauthorized']);
         }
     }
 
@@ -84,12 +91,13 @@ class AuthController extends BaseController
 
                 'password_confirmation.required' => 'パスワード確認フィールドは必須です。',
                 'password_confirmation.same' => 'パスワードの確認とパスワードは一致している必要があります。',
-               
+
                 'required' => 'この項目は必須です。',
             ]
         );
 
-        if($validator->fails()){
+        if ($validator->fails())
+        {
             return $this->sendError('Error validation', $validator->errors());
         }
 
@@ -103,10 +111,10 @@ class AuthController extends BaseController
 
         return $this->sendResponse($success, 'User created successfully.');
     }
-    public function logout() {
-        auth()->logout();
 
+    public function logout()
+    {
+        auth()->logout();
         return response()->json(['message' => 'User successfully signed out']);
     }
-
 }
