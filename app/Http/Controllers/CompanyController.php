@@ -33,8 +33,8 @@ class CompanyController extends Controller
 		return view('company.working_time_set', compact('time'));
 	}
 
-	public function working_time_set_save(Request $request) {
-		// dd($request);
+	public function working_time_set_save(Request $request)
+	{
 		if (isset($request->time_id)) {
 			$worktime = Worktime::find($request->time_id);
 		}
@@ -50,8 +50,8 @@ class CompanyController extends Controller
 		return redirect()->route('company.staff_add');
 	}
 
-	public function staff_list() {
-
+	public function staff_list()
+	{
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
         // $staffs = User::where('company_id', $company->id)
@@ -109,6 +109,7 @@ class CompanyController extends Controller
 							->where('status', '<>', '1')
 							->where('status', '<>', '2')
 							->get();
+
         $staff_retired = User::where('company_id', $company->id)
 							->where('role', 2)
 							->where('status', '2')
@@ -119,41 +120,46 @@ class CompanyController extends Controller
 		$departments = Department::where('company_id', $user->company_id)->get();
 
 		$company_avart = "";
-		$metaitem = Material::where('user_id', $user->id)->get();	
-		if(count($metaitem) > 0){
+		$metaitem = Material::where('user_id', $user->id)->get();
+
+		if (count($metaitem) > 0)
+		{
 			$company_avart = $metaitem[0]["dt1"];
 		}
-		if(count($staff_working) > 0 || count($staff_leave) > 0 || count($staff_retired)){
-			return view('company.staff_list',  ['user' => $user, 'company' => $company, 'staff_working'=>$staff_working, 'staff_leave'=>$staff_leave, 'staff_retired'=>$staff_retired, 'departments'=>$departments, 'company_avart'=>$company_avart]);
-		}else{
+		if (count($staff_working) > 0 || count($staff_leave) > 0 || count($staff_retired))
+		{
+			return view('company.staff_list', ['user' => $user, 'company' => $company, 'staff_working'=>$staff_working, 'staff_leave'=>$staff_leave, 'staff_retired'=>$staff_retired, 'departments'=>$departments, 'company_avart'=>$company_avart]);
+		}
+		else
+		{
 			return redirect()->route('company.staff_add');
 		}
-
 	}
 
-	public function staff_leave(Request $request) {
+	public function staff_leave(Request $request)
+	{
 		$user = User::find($request->staff_id);
 		$user->status = "1";
-		if($user->save()){
-			return "ok";
-		}
+		if ($user->save()) return "ok";
 	}
-	public function return_leave(Request $request) {
+	
+	public function return_leave(Request $request)
+	{
 		$user = User::find($request->staff_id);
 		$user->status = "0";
-		if($user->save()){
-			return "ok";
-		}
+		if ($user->save()) return "ok";
 	}
 
-	public function staff_history(Request $request) {
+	public function staff_history(Request $request)
+	{
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
         $staffs = User::where('company_id', $company->id)
                 // ->where('id', '!=', $user->id)
 				->where('role', 2)
                 ->get();
-		if (isset($request->staff_id)) {
+		if (isset($request->staff_id))
+		{
 			$staff_id = $request->staff_id;
 			$history = Userhistory::where('staff_id', $staff_id)->get();
 			return view('company.staff_history', compact('staffs', 'history', 'staff_id'));
@@ -165,17 +171,14 @@ class CompanyController extends Controller
 	{
 		$user = User::find($request->staff_id);
 		$user->status = "2";
-		if($user->save()){
-			return "ok";
-		}
+		if ($user->save()) return "ok";
 	}
+
 	public function staff_returnwork(Request $request)
 	{
 		$user = User::find($request->staff_id);
 		$user->status = "0";
-		if($user->save()){
-			return "ok";
-		}
+		if($user->save()) return "ok";
 	}
 
 	public function staff_detail(Request $request)
@@ -195,6 +198,7 @@ class CompanyController extends Controller
 		$year_service = $today - $created_at;
 		return view('company.staff_detail', compact('staff', 'metaitem', 'departments', 'sub_department', 'worktime', 'age', 'salary', 'salary_history', 'staff_history', 'year_service'));
 	}
+
 	public function staff_edit(Request $request)
 	{
 		$staff = User::find($request->id);
@@ -222,8 +226,11 @@ class CompanyController extends Controller
 			'country' => 'required|string|max:255',
 			'birthday' => 'required|date',
 		])->validate();
+
 		$staff = User::find($request->staff_id);
-		if ($staff->depart_id != $request->depart_id || $staff->sub_depart_id != $request->sub_depart_id || $staff->job_id != $request->job_id) {
+
+		if ($staff->depart_id != $request->depart_id || $staff->sub_depart_id != $request->sub_depart_id || $staff->job_id != $request->job_id)
+		{
 			$staff_history = new JobHistory;
 			$staff_history->staff_id = $staff->id;
 			$staff_history->job_history = $request->job_id;
@@ -256,9 +263,11 @@ class CompanyController extends Controller
 		$staff->salary_date = $request->salary_date;
 		$staff->idm = $request->idm;
 		$staff->job_id = $request->job_id;
-		if ($staff->save()) {
-			if($request->salary_id == 0){
 
+		if ($staff->save())
+		{
+			if($request->salary_id == 0)
+			{
 				$salary = new Salary;
 				$salary->staff_id = $request->staff_id;
 				$salary->hourly_wage = $request->hourly_wage;
@@ -268,13 +277,15 @@ class CompanyController extends Controller
 				$salary->technical_allowance = $request->technical_allowance;
 				$salary->adjustment_allowance = $request->adjustment_allowance;
 				$add_item = [];
-				for ($i = 1; $request["item_label_$i"] !== null; $i++) {
+				for ($i = 1; $request["item_label_$i"] !== null; $i++)
+				{
 					$add_item[$request["item_label_$i"]] = $request["item_content_$i"];
 				}
 				$salary->add_item = json_encode($add_item);
 				$salary->save();
-
-			} else {
+			}
+			else
+			{
 				$salary = Salary::find($request->salary_id);
 				$salary_data = [
 					'hourly_wage' => $request->hourly_wage,
@@ -285,24 +296,30 @@ class CompanyController extends Controller
 					'adjustment_allowance' => $request->adjustment_allowance
 				];
 				$add_item = [];
-				for ($i = 1; $request["item_label_$i"] !== null; $i++) {
+				for ($i = 1; $request["item_label_$i"] !== null; $i++)
+				{
 					$add_item[$request["item_label_$i"]] = $request["item_content_$i"];
 				}
-				for ($i = 1; $request["update_item_label_$i"] !== null; $i++) {
+				for ($i = 1; $request["update_item_label_$i"] !== null; $i++)
+				{
 					
 					$add_item[$request["update_item_label_$i"]] = $request["update_item_content_$i"];
 				}
- 				$salary_data['add_item'] = json_encode($add_item);
+				$salary_data['add_item'] = json_encode($add_item);
 				$updateSalary = false;
-				foreach ($salary_data as $key => $value) {
-					if ($salary->$key != $value) {
+				foreach ($salary_data as $key => $value)
+				{
+					if ($salary->$key != $value)
+					{
 						$updateSalary = true;
 						break;
 					}
- 				}
-				if ($updateSalary) {
+				}
+				if ($updateSalary)
+				{
 					$salary->fill($salary_data);
-					if($salary->save()){
+					if ($salary->save())
+					{
 						$salary_history = new SalaryHistory;
 						$salary_history->staff_id = $request->staff_id;
 						$salary_history->fill($salary_data);
@@ -321,27 +338,21 @@ class CompanyController extends Controller
 		return redirect()->route('company.staff_list');
 	}
 
-	public function metaitem_list() {
-
+	public function metaitem_list()
+	{
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
-
 		$metaitems = Metaitem::where('company_id', $company->id)->get();		
-
 		$company_avart = "";
 		$mat = Material::where('user_id', $user->id)->get();	
-		if(count($mat) > 0){
-			$company_avart = $mat[0]["dt1"];
-		}
+		if(count($mat) > 0) $company_avart = $mat[0]["dt1"];
 
 		$company = Company::where('user_id', $user->id)->first();
 		return view('company.metaitem_list',  ['user' => $user, 'metaitems' => $metaitems,  'company' => $company, 'company_avart'=>$company_avart]);
-
 	}
 
-
-	public function sheet_list() {
-
+	public function sheet_list()
+	{
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
 
@@ -350,31 +361,26 @@ class CompanyController extends Controller
 
 		$company_avart = "";
 		$mat = Material::where('user_id', $user->id)->get();	
-		if(count($mat) > 0){
-			$company_avart = $mat[0]["dt1"];
-		}
-		return view('company.sheet_list',  ['user' => $user, 'current_shift' => $current_sheets, 'deleted_shift' => $deleted_sheets, 'company' => $company, 'company_avart'=>$company_avart]);
+		if(count($mat) > 0) $company_avart = $mat[0]["dt1"];
 
+		return view('company.sheet_list',  ['user' => $user, 'current_shift' => $current_sheets, 'deleted_shift' => $deleted_sheets, 'company' => $company, 'company_avart'=>$company_avart]);
 	}
 
-	public function pay_list(){
+	public function pay_list()
+	{
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
-
 		$Sheets = Sheets::where('company_id', $company->id)->get();	
-
 		$company_avart = "";
-		$mat = Material::where('user_id', $user->id)->get();	
-		if(count($mat) > 0){
-			$company_avart = $mat[0]["dt1"];
-		}
+		$mat = Material::where('user_id', $user->id)->get();
 
+		if (count($mat) > 0) $company_avart = $mat[0]["dt1"];
 
 		return view('company.pay_list',  ['user' => $user, 'sheets' => $Sheets,  'company' => $company, 'company_avart'=>$company_avart]);
 	}
 
-	public function pay_add(Request $request){
-		
+	public function pay_add(Request $request)
+	{
 		$headers = array(
 			'Authorization: Bearer sk_test_51HrJWSBJYbvSwe7r4iCSISToafZ6CJcq6PBvpLfC8PiA6BXTO6dgjk9YU89CWS80ZiSSBeJYq3jGr0hdoozAPxza009fgzUjOr',
 		);
@@ -403,7 +409,8 @@ class CompanyController extends Controller
 
 	}
 
-	public function attend_sheet_set(Request $request){
+	public function attend_sheet_set(Request $request)
+	{
 		$year = explode("-", $request->sd)[0];
 		$sd_month = explode("-", $request->sd)[1];
 		$sd = explode("-", $request->sd)[2];
@@ -411,11 +418,14 @@ class CompanyController extends Controller
 		$ed_month = explode("-", $request->ed)[1];
 		$ed = explode("-", $request->ed)[2];
 
-		if ($sd_month == $ed_month) {
-			foreach($request->staff as $staff){
+		if ($sd_month == $ed_month)
+		{
+			foreach ($request->staff as $staff)
+			{
 				$attend = Attends::where('user_id', $staff)->where("year", $year)->where("month", $sd_month)->first();
 				$user = User::find($staff);
-				if(isset($attend)){
+				if (isset($attend))
+				{
 					$sheets = Sheets::find($request->sheet);
 					for($d = $sd*1 ; $d < $ed*1 + 1; $d++){
 						$s = $attend->{"s".$d};

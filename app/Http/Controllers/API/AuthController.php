@@ -58,12 +58,12 @@ class AuthController extends BaseController
             }
             else
             {
-                return $this->sendError('会社管理者ではありません。', ['error'=>'NO Boss']);
+                return $this->sendError('会社管理者ではありません。', ['error'=>'No Company Manager.']);
             }
         }
         else
         {
-            return $this->sendError('無効なメールアドレスまたはパスワード。', ['error'=>'Unauthorized']);
+            return $this->sendError('無効なメールアドレスまたはパスワード。', ['error'=>'Unauthorized.']);
         }
     }
 
@@ -89,7 +89,7 @@ class AuthController extends BaseController
                 'password.max' => 'パスワードは30文字以内にする必要があります。',
                 'password.confirmed' => 'パスワードの確認が一致しません。',
 
-                'password_confirmation.required' => 'パスワード確認フィールドは必須です。',
+                'password_confirmation.required' => 'パスワードの確認フィールドは必須です。',
                 'password_confirmation.same' => 'パスワードの確認とパスワードは一致している必要があります。',
 
                 'required' => 'この項目は必須です。',
@@ -115,6 +115,6 @@ class AuthController extends BaseController
     public function logout()
     {
         auth()->logout();
-        return response()->json(['message' => 'User successfully signed out']);
+        return response()->json(['message' => 'User successfully logged out']);
     }
 }

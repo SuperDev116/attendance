@@ -28,4 +28,5 @@ Route::group([
     Route::post('/login', [AuthController::class, 'signIn']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/attends', [AttendenceStampController::class, 'attendance']);
+    Route::post('/sth', [AttendenceStampController::class, 'sth']);
 });

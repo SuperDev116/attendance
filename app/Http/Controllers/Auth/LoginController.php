@@ -70,11 +70,12 @@ class LoginController extends Controller
                 'email.email' => 'メールは有効なメールアドレスである必要があります。',
                 'password.required' => 'パスワードフィールドは必須です。',
             ]
-        ); 
+        );
 
         if (Auth::attempt($credentials))
         {
             $request->session()->regenerate();
+
             if (Auth::user()->role == 0)
             {
                 return redirect()->route('admin.dashboard');
