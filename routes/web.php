@@ -5,9 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\ExsettingController;
-use App\Http\Controllers\ItemController;
-use App\Http\Controllers\MypageController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AttendanceController;
 
 // Authentication Routes
@@ -25,6 +23,10 @@ Route::get('reset_password', [LoginController::class, 'resetPwd'])->name('reset'
 Route::get('reset_pwd', [LoginController::class, 'resetView'])->name('reset_pwd');
 Route::post('update_password', [LoginController::class, 'updatePwd'])->name('password.update');
 Route::get('/mypage/item_add', [MypageController::class, 'item_add'])->name('mypage.tem_add');
+
+// Contact Route
+Route::get('otoiawase', [ContactController::class, 'otoiawase'])->name('otoiawase');
+
 // Admin Routes
 Route::group(['middleware' => ['auth', 'admin']], function() {
 	Route::prefix('admin')->group(function() {

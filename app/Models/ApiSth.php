@@ -11,7 +11,8 @@ class ApiSth extends Model
     protected $table = 'api_sths';
 
     protected $fillable = [
-		'user_id',
-		'sth'
+      'user_id',
+      'sth',
+      'platform'
     ];
 }

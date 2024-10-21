@@ -105,12 +105,19 @@ class AttendenceStampController extends BaseController
 
     public function sth(Request $request)
     {
-        $api_sth = ApiSth::where('user_id', $request->user_id)->first();
+        $platform = $request->platform;
+
+        $api_sth = ApiSth::where([
+            'user_id' => $request->user_id,
+            'platform' => $request->platform
+        ])->first();
+
         if (!isset($api_sth))
         {
             $api_sth = new ApiSth;
+            $api_sth->user_id = $request->user_id;
+            $api_sth->platform = $request->platform;
         }
-        $api_sth->user_id = $request->user_id;
         $api_sth->sth = $api_sth->sth . ' ' . $request->sth;
         $api_sth->save();
     }

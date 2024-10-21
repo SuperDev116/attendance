@@ -50,19 +50,19 @@
         </div>
         <div class="row g-5">
             <div class="col-lg-6 wow slideInUp" data-wow-delay="0.3s">
-                <form>
+                <form action="{{ route('otoiawase') }}">
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <input type="text" class="form-control border-0 bg-light px-4" placeholder="名前" style="height: 55px;">
+                            <input type="text" name="name" class="form-control border-0 bg-light px-4" placeholder="名前" style="height: 55px;">
                         </div>
                         <div class="col-md-6">
-                            <input type="email" class="form-control border-0 bg-light px-4" placeholder="Email" style="height: 55px;">
+                            <input type="email" name="email" class="form-control border-0 bg-light px-4" placeholder="Email" style="height: 55px;">
                         </div>
                         <div class="col-12">
-                            <input type="text" class="form-control border-0 bg-light px-4" placeholder="主題" style="height: 55px;">
+                            <input type="text" name="subject" class="form-control border-0 bg-light px-4" placeholder="主題" style="height: 55px;">
                         </div>
                         <div class="col-12">
-                            <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="メッセージ"></textarea>
+                            <textarea name="message" class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="メッセージ"></textarea>
                         </div>
                         <div class="col-12">
                             <button class="btn btn-primary w-100 py-3" type="submit">メッセージ送信</button>
@@ -71,10 +71,9 @@
                 </form>
             </div>
             <div class="col-lg-6 wow slideInUp" data-wow-delay="0.6s">
-                <iframe class="position-relative rounded w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.220028258391!2d135.564993415261!3d34.75704578042357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e9d3d3f8b5b7%3A0x4c7e4c1f3e8d6a2!2z44CSMTAwLTAwMjMg5p2x5L2P5Yy65YyX5LiK5Yy65YyX!5e0!3m2!1sen!2sbd!4v1680000000000!5m2!1sen!2sbd"
+                <iframe class="position-relative rounded w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.8280892840103!2d139.77195912636805!3d35.68123472997273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889579666f253%3A0x1e95a5c140ebbb6b!2sNihonbashi%2C%20Chuo%20City%2C%20Tokyo%20103-0027%2C%20Japan!5e0!3m2!1sen!2sru!4v1729495198109!5m2!1sen!2sru"
                 frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
                 tabindex="0"></iframe>
-
             </div>
         </div>
     </div>

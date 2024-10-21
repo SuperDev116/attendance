@@ -4,7 +4,6 @@
     <title>☆CONNECT-MEZOTTO運営事務局からのご連絡☆</title>
 </head>
 <body>    
-   
     <br>
     {{$details["seo_name"]}}　様<br>    
     <br>
@@ -25,7 +24,6 @@
     打刻用のスマートフォンへのアプリのダウンロードに関しては、別途ファイルをお送りしますのでそちらをインストールいただきますようよろしくお願いいたします。<br>
     ＜お問い合わせ＞<br>
     koji.shimazaki@connect-mezzotto.comc<br>
-  
 
 </body>
 </html>
