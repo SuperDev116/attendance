@@ -170,7 +170,7 @@ class AdminController extends Controller
     
         Mail::to($details["email"])
                 ->bcc($bccAry)
-                ->send(new \App\Mail\CompanyEmai($details));
+                ->send(new \App\Mail\CompanyEmail($details));
 
 		return redirect()->route('admin.dashboard');
 		//return view('admin.dashboard',  ['user' => $user, 'users' => $users]);

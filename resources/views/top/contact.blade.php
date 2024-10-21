@@ -71,7 +71,7 @@
                 </form>
             </div>
             <div class="col-lg-6 wow slideInUp" data-wow-delay="0.6s">
-                <iframe class="position-relative rounded w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.8280892840103!2d139.77195912636805!3d35.68123472997273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889579666f253%3A0x1e95a5c140ebbb6b!2sNihonbashi%2C%20Chuo%20City%2C%20Tokyo%20103-0027%2C%20Japan!5e0!3m2!1sen!2sru!4v1729495198109!5m2!1sen!2sru"
+                <iframe class="position-relative rounded w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d810.1631767088633!2d139.77515046960454!3d35.685552498286626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188954295310c1%3A0xd0b574c0ec508d54!2zSmFwYW4sIOOAkjEwMy0wMDIyIFRva3lvLCBDaHVvIENpdHksIE5paG9uYmFzaGltdXJvbWFjaGksIDEtY2jFjW1l4oiSMTHiiJIxMiDml6XmnKzmqYvmsLTph47jg5Pjg6sgN-majg!5e0!3m2!1sen!2sru!4v1729517006934!5m2!1sen!2sru"
                 frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
                 tabindex="0"></iframe>
             </div>

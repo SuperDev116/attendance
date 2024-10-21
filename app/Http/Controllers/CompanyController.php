@@ -854,7 +854,8 @@ class CompanyController extends Controller
 		}
 	}
 	// ```````````````````````````````````````day
-	public function attend_list() {
+	public function attend_list()
+	{
 
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
@@ -992,7 +993,9 @@ class CompanyController extends Controller
 		$today = date('Y-m-d');
 		return view('company.attend_list',  ['user' => $user, 'sheets' => $sheets, 'departments'=>$departments,  'company' => $company, 'attends' => $attends, 'dates' => $dates, 'numberOfDays' => $numberOfDays, 'today' => $today]);
 	}
-	public function attend_search_depart(Request $request) {
+
+	public function attend_search_depart(Request $request)
+	{
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
 		$sheets = Sheets::where('company_id', $company->id)->get();
@@ -1131,7 +1134,9 @@ class CompanyController extends Controller
 		$today = date('Y-m-d');
 		return view('company.attend_list',  ['user' => $user, 'sheets' => $sheets, 'departments'=>$departments,  'company' => $company, 'attends' => $attends, 'dates' => $dates, 'numberOfDays' => $numberOfDays, 'today' => $today]);
 	}
-	public function day_attend_list(Request $request) {
+
+	public function day_attend_list(Request $request)
+	{
 		$year = explode("-", $request->searchDate)[0];
 		$month = explode("-", $request->searchDate)[1];
 		$day = explode("-", $request->searchDate)[2];
@@ -1236,7 +1241,9 @@ class CompanyController extends Controller
 		}
 		return view('company.day_attend_list',  ['user' => $user, 'sheets' => $sheets, 'departments'=>$departments,  'company' => $company, 'attends' => $attends, 'dates' => $dates, 'numberOfDays' => $numberOfDays, 'today' => $day, 'day' => $request->searchDate]);
 	}
-	public function user_attend(Request $request) {
+
+	public function user_attend(Request $request)
+	{
 		$note = [
 			"a01" => "",
 			"a02" => "",
@@ -1361,7 +1368,9 @@ class CompanyController extends Controller
 		}
 		return view('company.user_attend', compact('staff', 'company', 'departments', 'sheets', 'dates', 'attend', 'numberOfDays', 'today_data', 'user_id'));
 	}
-	public function month_user_attend(Request $request) {
+
+	public function month_user_attend(Request $request)
+	{
 		$note = [
 			"a01" => "",
 			"a02" => "",
@@ -1493,8 +1502,9 @@ class CompanyController extends Controller
 	}
 	// ```````````````````````````````````````end day
 	// ```````````````````````````````````````month
-	public function attend_list_month() {
 
+	public function attend_list_month()
+	{
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
 		$sheets = Sheets::where('company_id', $company->id)->where("deleted_flag", "0")->get();
@@ -1597,7 +1607,9 @@ class CompanyController extends Controller
 		$today = date("Y-m-d");
 		return view('company.attend_list_month',  ['user' => $user, 'sheets' => $sheets, 'departments'=>$departments,  'company' => $company, 'attends' => $attends, 'dates' => $dates, 'numberOfDays' => $numberOfDays, 'today' => $today]);
 	}
-	public function get_attendList(Request $request) {
+
+	public function get_attendList(Request $request)
+	{
 		$year = $request->year;
 		$month = $request->month;
 		$user = Auth::user();
@@ -1751,12 +1763,15 @@ class CompanyController extends Controller
 	}
 	// ```````````````````````````````````````end month
 	
-	public function sheet_sel_info(Request $request){
+	public function sheet_sel_info(Request $request)
+	{
 		$sel = $request->sel;
 		$sheets = Sheets::where('id', $sel)->first();	
 		return $sheets;
 	}
-	public function sheet_add(Request $request){
+
+	public function sheet_add(Request $request)
+	{
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
 
@@ -1781,9 +1796,9 @@ class CompanyController extends Controller
 
 		return "ok";
 	}
-	public function sheet_save(Request $request){	
 
-		
+	public function sheet_save(Request $request)
+	{	
 		$sheet = Sheets::find($request->sel_id);
 
 		$sheet->sheet_name = $request->sheet_name;		
@@ -1805,7 +1820,8 @@ class CompanyController extends Controller
 		return "ok";
 	}
 
-	public function sheet_delete(Request $request){	
+	public function sheet_delete(Request $request)
+	{	
 		$sheet = Sheets::find($request->sel);
 		$sheet->deleted_flag = "1";
 		if ($sheet->save()) {
@@ -1813,7 +1829,8 @@ class CompanyController extends Controller
 		}
 	}
 
-	public function sheet_return(Request $request){	
+	public function sheet_return(Request $request)
+	{	
 		$sheet = Sheets::find($request->sel);
 		$sheet->deleted_flag = "0";
 		if ($sheet->save()) {
@@ -1821,7 +1838,8 @@ class CompanyController extends Controller
 		}
 	}
 
-	public function metaitem_add(Request $request){
+	public function metaitem_add(Request $request)
+	{
 		$metaitem = $request->metaitem;
 		$description = $request->description;
 		$kind = $request->kind;
@@ -1842,8 +1860,8 @@ class CompanyController extends Controller
 		return "ok";
 	}
 
-	public function metaitem_save(Request $request){
-		
+	public function metaitem_save(Request $request)
+	{
 		$metaitem = $request->metaitem;
 		$description = $request->description;
 		$kind = $request->kind;
@@ -1863,21 +1881,23 @@ class CompanyController extends Controller
 		return "ok";
 	}
 
-	public function metaitem_sel_info(Request $request){
+	public function metaitem_sel_info(Request $request)
+	{
 		$sel = $request->sel;
 		$metaitem = Metaitem::where('id', $sel)->first();	
 		return $metaitem;
 	}
 
-	public function metaitem_delete(Request $request){
+	public function metaitem_delete(Request $request)
+	{
 		$sel = $request->sel;
 		$metaitem = Metaitem::where('id', $sel)->first();
 		$metaitem->delete();	
 		return "ok";
 	}
 
-	public function search_staff(Request $request) {
-
+	public function search_staff(Request $request)
+	{
         $search = $request->search;
         $company_id = $request->company_id;
         $filtered_staffs = User::where('company_id', $company_id)->where('user_name', 'LIKE', '%'.$search.'%')->get();
@@ -1885,11 +1905,15 @@ class CompanyController extends Controller
 		return $filtered_staffs;
 
 	}
-	public function staff_bug(){
+
+	public function staff_bug()
+	{
 		echo "登録されたメールアドレスです。<br>";
 		echo "再登録するには<a href='".route('company.staff_add')."'>こちら</a><br>";
 	}
-	public function staff_create(Request $request) {
+
+	public function staff_create(Request $request)
+	{
 		Validator::make($request->all(), [
 			'email' => 'required|unique:users',
 			'name' => 'required|string|max:255',
@@ -2008,8 +2032,8 @@ class CompanyController extends Controller
 		return redirect()->route('company.staff_list');
 	}
 
-    public function staff_add() {
-
+    public function staff_add()
+	{
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
 		$departments = Department::where('company_id', $company->id)->get();
@@ -2030,12 +2054,14 @@ class CompanyController extends Controller
 		}
 	}
 
-	public function staff_get_sub_depart(Request $request){
+	public function staff_get_sub_depart(Request $request)
+	{
 		$subdepart = Subdepartment::where('depart_id', $request->depart_id)->get();
 		return $subdepart;
 	}
 
-	public function department_list(){
+	public function department_list()
+	{
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
 		$departments = Department::where('company_id', $company->id)->get();
@@ -2079,7 +2105,8 @@ class CompanyController extends Controller
 		return view('company.department_history', compact('dep_history'));
 	}
 
-	public function department_add(Request $request){
+	public function department_add(Request $request)
+	{
 		$depart = $request->depart;
 		$description = $request->description;
 		$user = Auth::user();
@@ -2113,8 +2140,8 @@ class CompanyController extends Controller
 		return "ok";
 	}
 
-	public function department_save(Request $request){
-		
+	public function department_save(Request $request)
+	{
 		$depart = $request->depart;
 		$description = $request->description;
 		$sel = $request->sel_id;
@@ -2158,13 +2185,15 @@ class CompanyController extends Controller
 		}
 	}
 
-	public function department_sel_info(Request $request){
+	public function department_sel_info(Request $request)
+	{
 		$sel = $request->sel;
 		$department = Department::where('id', $sel)->first();
 		return $department;
 	}
 
-	public function sub_department_add(Request $request){
+	public function sub_department_add(Request $request)
+	{
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
 		$subdepart = new Subdepartment;
@@ -2192,12 +2221,14 @@ class CompanyController extends Controller
 		}
 	}
 
-	public function sub_department_sel_info(Request $request){
+	public function sub_department_sel_info(Request $request)
+	{
 		$sub_department = Subdepartment::find($request->sub_id);
 		return $sub_department;
 	}
 
-	public function sub_department_save(Request $request){
+	public function sub_department_save(Request $request)
+	{
 		$sub_department = Subdepartment::find($request->sub_depart_id);
 		$sub_department->depart_id = $request->de_id;
 		$sub_department->name = $request->sub_depart;
@@ -2206,7 +2237,8 @@ class CompanyController extends Controller
 		return "ok";
 	}
 
-	public function sub_department_delete(Request $request){
+	public function sub_department_delete(Request $request)
+	{
 		$user = Auth::user();
 		$company = Company::where('user_id', $user->id)->first();
 		$sub_department = Subdepartment::find($request->sub_depart_id);
@@ -2231,13 +2263,15 @@ class CompanyController extends Controller
 		}
 	}
 
-	public function create_company() {		
+	public function create_company()
+	{		
 		$user = Auth::user();
 		$users = User::where('role', 'seo')->get();
 		return view('admin.create_company',  ['user' => $user, 'users' => $users]);
 	}
 
-	public function sel_company_info(Request $request) {	
+	public function sel_company_info(Request $request)
+	{	
 		$req = request()->post();
 
 		$new_companys = Company::where('id', $req["sel"])->limit(1)->get();
@@ -2268,9 +2302,10 @@ class CompanyController extends Controller
 		return $new_companys;
 	}
 
-	public function create_company_save(Request $request) {
-
+	public function create_company_save(Request $request)
+	{
 		$req = request()->post();
+		dd($req['password']);
 
 		$user = new User;
 		$user->name = $req["name"];
@@ -2322,7 +2357,8 @@ class CompanyController extends Controller
 		//return view('admin.dashboard',  ['user' => $user, 'users' => $users]);
 	}
 
-	public function file_upload(Request $request) {
+	public function file_upload(Request $request)
+	{
 		$req = json_decode($request['postData']);
 
 		$img = base64_encode(file_get_contents($_FILES['file']['tmp_name']));
@@ -2368,6 +2404,7 @@ class CompanyController extends Controller
 		
 		return "Ok";
 	}
+
 	public function job_create(Request $request)
 	{
 		$company_id = Auth::user()->company_id;
@@ -2423,25 +2460,29 @@ class CompanyController extends Controller
 		return view('company.job_history', compact('staffs'));
 	}
 	//////////////////////////////////
-    public function list_account() {
+    public function list_account()
+	{
 		$user = Auth::user();
 		$users = User::all();
 		return view('admin.account', ['user' => $user, 'users' => $users]);
 	}
 
-	public function delete_account(Request $request) {
+	public function delete_account(Request $request)
+	{
 		$id = $request->id;
 		User::find($id)->delete();
 	}
 
-	public function permit_account(Request $request) {
+	public function permit_account(Request $request)
+	{
 		$id = $request['id'];
 		$user = User::find($id);
 		$user->is_permitted = $request['isPermitted'];
 		$user->save();
 	}
 
-	public function set_column_user(Request $request) {
+	public function set_column_user(Request $request)
+	{
 		$user_id = Auth::id();
 		$user = User::find($user_id);
 		$user[$request->col] = $request->content;
@@ -2450,7 +2491,8 @@ class CompanyController extends Controller
 		return;
 	}
 
-	public function set_column_exset(Request $request) {
+	public function set_column_exset(Request $request)
+	{
 		$user_id = Auth::id();
 		$ex_setting = Exsetting::where('user_id', $user_id)->get();
 		$ex_setting[0][$request->col] = $request->content;
@@ -2472,7 +2514,8 @@ class CompanyController extends Controller
 		$user_query->save();
 	}
 	
-	public function save_limit(Request $request) {
+	public function save_limit(Request $request)
+	{
 		$user_id = $request->user_id;
 
 		$user = User::find($user_id);
@@ -2549,7 +2592,8 @@ class CompanyController extends Controller
 		return view('company.salary', compact('salary'));
 	}
 
-	public function salary_create(Request $request) {
+	public function salary_create(Request $request)
+	{
 		$company_id = Auth::user()->company_id;
 		$salary = $request->salary_id == 0 ? new Salary : Salary::find($request->salary_id);
 		$salary->company_id = $company_id;
@@ -2575,7 +2619,8 @@ class CompanyController extends Controller
 		return redirect()->route('company.salary');
 	}
 
-	public function get_attend_data(Request $request) {
+	public function get_attend_data(Request $request)
+	{
 		$year = explode("-", $request->data)[0];
 		$month = explode("-", $request->data)[1];
 		$attend_data = Attends::where('id', $request->id)->where('year', $year)->where('month', $month)->first();
@@ -2589,7 +2634,8 @@ class CompanyController extends Controller
 		return response()->json($data); 
 	}
 
-	public function attend_update(Request $request) {
+	public function attend_update(Request $request)
+	{
 		$update_attend = Attends::where('id', $request->att_id)->first();
 		$shift_time = json_decode($update_attend["s".$request->att_day]);
 		$shift_time->ot = $request->shift_open_time;
@@ -2622,13 +2668,14 @@ class CompanyController extends Controller
 		return "ok";
 	}
 
-	public function shift_set(Request $request) {
+	public function shift_set(Request $request)
+	{
 		$sheet = Sheets::find($request->sheet_id);
 		
 		$attend = Attends::where('id', $request->user_id)
-						 ->where('year', $request->year)
-						 ->where('month', $request->month)
-						 ->first();
+						->where('year', $request->year)
+						->where('month', $request->month)
+						->first();
 		if ($request->day == "1") {
 			$day = "01";
 		} elseif ($request->day == "2") {
@@ -2674,5 +2721,4 @@ class CompanyController extends Controller
 		$attend->save();
 		return redirect()->route("company.attend_list_month");
 	}
-	
 }

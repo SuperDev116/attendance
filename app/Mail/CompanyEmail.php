@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class CompanyEmai extends Mailable
+class CompanyEmail extends Mailable
 {
     use Queueable, SerializesModels;
     public $details;
@@ -31,7 +31,7 @@ class CompanyEmai extends Mailable
     {
         $bccAry = [];
         return $this->subject('☆人事管理システム運営事務局からのご連絡☆')
-                    ->from($address = 'info@xs017476.xsrv.jp', $name = 'info-support')      
+                    ->from($address = 'info@kintai-pro.com', $name = 'kintai-support')      
                     ->bcc($bccAry)                         
                     ->view('emails.CompanyEmail');
     }

@@ -17,13 +17,12 @@
     <b>パスワード：company1234</b>    
     <br>
     ▼ログインURL<br>
-    https://xs717357.xsrv.jp/login<br>
+    https://kintai-pro.com/login<br>
     です。<br>
 
     <br>
     打刻用のスマートフォンへのアプリのダウンロードに関しては、別途ファイルをお送りしますのでそちらをインストールいただきますようよろしくお願いいたします。<br>
     ＜お問い合わせ＞<br>
-    koji.shimazaki@connect-mezzotto.comc<br>
-
+    info@unoun.co.jp<br>
 </body>
 </html>

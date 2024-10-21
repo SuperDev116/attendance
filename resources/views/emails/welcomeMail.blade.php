@@ -4,7 +4,6 @@
     <title>☆CONNECT-MEZOTTO運営事務局からのご連絡☆</title>
 </head>
 <body>    
-   
     <br>
     {{$details["name"]}}　様<br>    
     <br>
@@ -14,7 +13,6 @@
     <br>
     
     ＜お問い合わせ＞<br>
-    koji.shimazaki@connect-mezzotto.comc<br>
-
+    info@unoun.co.jp<br>
 </body>
 </html>

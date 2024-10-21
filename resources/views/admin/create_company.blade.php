@@ -37,7 +37,7 @@
 
                             <div class="col-md-12 col-sm-12  form-group has-feedback">
                                 <input type="password" class="form-control has-feedback-left" id="password" name="password"
-                                    placeholder="パスワード" required="required">
+                                    placeholder="パスワード" required="required" value="company1234" readonly>
                                 <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
                             </div>
 
