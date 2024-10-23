@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>☆CONNECT-MEZOTTO運営事務局からのご連絡☆</title>
+    <title>☆勤怠管理システム運営事務局からのご連絡☆</title>
 </head>
 <body>    
     <br>
     {{$details["seo_name"]}}　様<br>    
     <br>
     <br>
-    株式会社 {{$details["company_name"]}} がCONNECT-MEZOTTOに登録されました。<br>
+    株式会社 {{$details["company_name"]}} が勤怠管理システムに登録されました。<br>
 
     <br>
     

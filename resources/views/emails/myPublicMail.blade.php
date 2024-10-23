@@ -5,7 +5,7 @@
     <title>パスワード再設定のお知らせ</title>
 </head>
 <body>
-  
+
     <br>
     {{$details["name"]}}　様<br>    
     <br>

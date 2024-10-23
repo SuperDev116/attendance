@@ -1,18 +1,18 @@
 <?php
-  
+
 namespace App\Mail;
-  
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-  
+
 class PublicMail extends Mailable
 {
     use Queueable, SerializesModels;
-  
+
     public $details;
-  
+
     /**
      * Create a new message instance.
      *
@@ -22,7 +22,7 @@ class PublicMail extends Mailable
     {
         $this->details = $details;
     }
-  
+
     /**
      * Build the message.
      *
@@ -32,7 +32,7 @@ class PublicMail extends Mailable
     {
         $bccAry = [];
         return $this->subject("パスワード変更のご連絡")
-                    ->from($address = 'info@xs017476.xsrv.jp', $name = 'keepaautobuy')
+                    ->from($address = 'info@kintai-pro.com', $name = 'kintai-support')
                     ->bcc($bccAry)
                     ->view('emails.myPublicMail');
     }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>☆CONNECT-MEZOTTO運営事務局からのご連絡☆</title>
+    <title>☆勤怠管理システム運営事務局からのご連絡☆</title>
 </head>
 <body>    
     <br>
